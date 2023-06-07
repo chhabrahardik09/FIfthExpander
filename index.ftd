@@ -1,40 +1,98 @@
--- my-ds.page: Welcome to doc-site
+-- import: fifthtry.github.io/doc-site as ds
 
 
-⚡️ `doc-site` will help you create a beautiful documentation site in no time.
 
-It provides out-of-the-box documentation features that can be used to create any
-kind of site(personal website, blog, etc).
+-- ftd.column:
+padding.px: 50
+border-width.px: 1
+background.solid: #eee
+width: fill-container
+height: fill-container
+align-content: top-center
+spacing.fixed.px: 20
 
-[Click here](https://fastn-community.github.io/doc-site/) to read doc-site
-documentation.
+-- box: what is FTD?
 
--- ds.h3: 🚀 Fast Track 
-
-Create your first fastn [web-site](https://fastn.com/expander/hello-world/-/build/) 
-project in just 5 minutes!
-
--- ds.h3: 🌟 Whats next?
-
-Create your first page. 
-[Click here to know more](https://fastn-community.github.io/doc-site/page/).
-
--- ds.h3: 👀 Want to learn more?
-
-Feel free to check [our expander course](https://fastn.com/expander/) or jump
-into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
+FTD is a very useful language for programmers,
+care about roor requiring qupting for strings
 
 
--- ds.h3: 🎯 Used by?
+-- box:
 
-Our all documentation sites uses this `doc-site` theme.
+-- box.title:
 
-- [fastn.com](https://fastn.com/home/)
-- [FifthTry.com](https://www.fifthtry.com/)
+about FTD
 
--- ds.h2: Learn fastn and become a pro?
+-- box.body:
 
-You are one click away, just check [our documentation](https://fastn.com/) and 
-dont forget to jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
+not relying on indentation or braces 
+that most programming language requires.
 
--- end: my-ds.page
+
+
+-- box:
+
+
+-- end: ftd.column
+;; root column ends
+
+
+-- component box:
+caption title: Default header
+body body: Default body
+boolean $open: false
+
+;; $ makes the variable mutable unless it will be just read only
+
+
+-- ftd.column:
+border-width.px: 5
+spacing.fixed.px: 10
+width: fill-container
+
+-- ftd.row:
+width: fill-container
+spacing: space-between
+border-bottom-width.px: 1
+padding.px: 10
+$on-click$: $toggle( $value = $box.open )
+
+;; toggle function called , define it below 
+;; $value is the ne mutable variable which takes value of open variable 
+
+;;declaring a fuunction
+
+-- ftd.text: $box.title
+
+-- ftd.text: X
+if: {box.open}
+color: red
+
+-- ftd.text: O
+if: {!box.open}
+color: green
+
+
+
+-- end: ftd.row
+
+
+
+-- ftd.text: $box.body
+padding.px: 10
+height: hug-content
+if: { box.open }
+
+;;FTD is a very useful language for programmers, care about roor requiring qupting for strings
+;;not relying on indentation or braces that most programming language requires.
+
+
+-- end: ftd.column
+
+-- end: box
+
+
+-- void toggle(value):
+boolean $value:
+
+value=!value;
